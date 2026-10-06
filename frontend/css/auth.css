@@ -1,0 +1,305 @@
+/* ============================================
+   AUTH PAGES — Login & Signup
+   ============================================ */
+
+.auth-body {
+    overflow-y: auto;
+}
+
+.auth-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+}
+
+/* ===== LEFT VISUAL PANEL ===== */
+.auth-visual {
+    position: relative;
+    padding: var(--space-xl);
+    background: var(--gradient-surface);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.auth-visual__logo {
+    position: relative;
+    z-index: 2;
+}
+
+.auth-visual__content {
+    position: relative;
+    z-index: 2;
+    max-width: 480px;
+}
+
+.auth-visual__title {
+    font-size: var(--fs-4xl);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: var(--space-md);
+}
+
+.auth-visual__text {
+    font-size: var(--fs-base);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-xl);
+}
+
+.auth-visual__stats {
+    display: flex;
+    gap: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+}
+
+.auth-visual__glow {
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--color-primary-glow) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+/* ===== RIGHT FORM PANEL ===== */
+.auth-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl);
+}
+
+.auth-form__inner {
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-form__header {
+    margin-bottom: var(--space-lg);
+}
+
+.auth-form__title {
+    font-size: var(--fs-3xl);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.auth-form__subtitle {
+    color: var(--color-text-muted);
+    font-size: var(--fs-sm);
+}
+
+.auth-form__subtitle a {
+    color: var(--color-primary-light);
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.auth-form__subtitle a:hover {
+    color: var(--color-primary);
+}
+
+/* ===== FORM ===== */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form__label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form__label {
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--color-text-muted);
+}
+
+.form__link {
+    font-size: var(--fs-xs);
+    color: var(--color-primary-light);
+    transition: color var(--transition-fast);
+}
+
+.form__link:hover {
+    color: var(--color-primary);
+}
+
+.form__input-wrapper {
+    position: relative;
+}
+
+.form__input {
+    width: 100%;
+    padding: 0.9rem 1.1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: var(--fs-base);
+    transition: all var(--transition-base);
+    outline: none;
+}
+
+.form__input-wrapper .form__input {
+    padding-right: 3rem;
+}
+
+.form__input::placeholder {
+    color: var(--color-text-dim);
+}
+
+.form__input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px var(--color-primary-glow);
+    background: var(--color-surface-2);
+}
+
+.form__toggle-pw {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem;
+    font-size: 1rem;
+    opacity: 0.6;
+    transition: opacity var(--transition-fast);
+    border-radius: var(--radius-sm);
+}
+
+.form__toggle-pw:hover {
+    opacity: 1;
+}
+
+.form__message {
+    font-size: var(--fs-sm);
+    min-height: 1.2rem;
+    text-align: center;
+}
+
+.form__message--error {
+    color: var(--color-danger);
+}
+
+.form__message--success {
+    color: var(--color-success);
+}
+
+.form__submit {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.form__submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ===== FOOTER ===== */
+.auth-form__footer {
+    margin-top: var(--space-lg);
+    text-align: center;
+}
+
+.auth-form__footer-text {
+    font-size: var(--fs-xs);
+    color: var(--color-text-dim);
+    line-height: 1.7;
+}
+
+.auth-form__footer-text a {
+    color: var(--color-text-muted);
+    text-decoration: underline;
+    text-decoration-color: var(--color-border);
+    transition: color var(--transition-fast);
+}
+
+.auth-form__footer-text a:hover {
+    color: var(--color-primary-light);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .auth-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-visual {
+        display: none;
+    }
+
+    .auth-body {
+        overflow: auto;
+    }
+}/* ===== PASSWORD STRENGTH ===== */
+.pw-strength {
+    height: 4px;
+    background: var(--color-surface-2);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-top: 0.25rem;
+}
+
+.pw-strength__bar {
+    height: 100%;
+    width: 0%;
+    background: var(--color-danger);
+    transition: all var(--transition-base);
+    border-radius: var(--radius-full);
+}
+
+.pw-strength__bar--weak { background: var(--color-danger); width: 33%; }
+.pw-strength__bar--medium { background: var(--color-warning); width: 66%; }
+.pw-strength__bar--strong { background: var(--color-success); width: 100%; }
+
+.form__hint {
+    font-size: var(--fs-xs);
+    color: var(--color-text-dim);
+    margin-top: 0.25rem;
+}
+
+/* ===== CHECKBOX ===== */
+.form__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: var(--fs-sm);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.form__checkbox input {
+    margin-top: 0.25rem;
+    accent-color: var(--color-primary);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.form__checkbox a {
+    color: var(--color-primary-light);
+    text-decoration: underline;
+    text-decoration-color: var(--color-border);
+}
+
+.form__checkbox a:hover {
+    color: var(--color-primary);
+}

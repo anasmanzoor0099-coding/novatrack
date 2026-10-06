@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard — NovaTrack</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="dash-body">
+
+    <!-- ============================
+         SIDEBAR
+         ============================ -->
+    <aside class="sidebar">
+        <a href="index.html" class="logo sidebar__logo">
+            NOVA<span>.</span>
+        </a>
+
+        <nav class="sidebar__nav">
+            <a href="#" class="sidebar__link active">
+                <span>📊</span> Dashboard
+            </a>
+            <a href="#" class="sidebar__link">
+                <span>📦</span> My Orders
+            </a>
+            <a href="#" class="sidebar__link">
+                <span>🚚</span> Shipments
+            </a>
+            <a href="#" class="sidebar__link">
+                <span>⚙️</span> Settings
+            </a>
+        </nav>
+
+        <button class="sidebar__logout" id="logoutBtn">
+            <span>↪</span> Logout
+        </button>
+    </aside>
+
+    <!-- ============================
+         MAIN CONTENT
+         ============================ -->
+    <main class="dash-main">
+
+        <!-- TOP BAR -->
+        <header class="dash-header">
+            <div>
+                <h1 class="dash-header__title">Welcome back, <span id="userName">User</span> 👋</h1>
+                <p class="dash-header__subtitle">Here's your tracking overview</p>
+            </div>
+
+            <div class="dash-header__user">
+                <div class="avatar" id="userAvatar">U</div>
+            </div>
+        </header>
+
+        <!-- SEARCH TRACKING -->
+        <section class="dash-search">
+            <form id="trackForm" class="dash-search__form">
+                <input
+                    type="text"
+                    id="trackInput"
+                    class="dash-search__input"
+                    placeholder="Enter tracking ID (e.g. NT-2024-XK9821)"
+                />
+                <button type="submit" class="btn btn--primary">
+                    Track Order
+                </button>
+            </form>
+            <p class="dash-search__hint">💡 Try: <code>NT-2024-XK9821</code></p>
+        </section>
+
+        <!-- STATS CARDS -->
+        <section class="dash-stats">
+            <div class="dash-stat">
+                <div class="dash-stat__icon">📦</div>
+                <div>
+                    <div class="dash-stat__value">12</div>
+                    <div class="dash-stat__label">Total Orders</div>
+                </div>
+            </div>
+            <div class="dash-stat">
+                <div class="dash-stat__icon">🚚</div>
+                <div>
+                    <div class="dash-stat__value">3</div>
+                    <div class="dash-stat__label">In Transit</div>
+                </div>
+            </div>
+            <div class="dash-stat">
+                <div class="dash-stat__icon">✅</div>
+                <div>
+                    <div class="dash-stat__value">8</div>
+                    <div class="dash-stat__label">Delivered</div>
+                </div>
+            </div>
+            <div class="dash-stat">
+                <div class="dash-stat__icon">⏳</div>
+                <div>
+                    <div class="dash-stat__value">1</div>
+                    <div class="dash-stat__label">Pending</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D TRACKING AREA -->
+        <section class="dash-tracker" id="tracker">
+            <div class="dash-tracker__header">
+                <h2 class="dash-tracker__title">
+                    Live Tracking — <span class="text-gradient" id="trackIdDisplay">NT-2024-XK9821</span>
+                </h2>
+                <div class="status-badge status-badge--transit">
+                    <span class="status-badge__dot"></span> In Transit
+                </div>
+            </div>
+<!-- 3D CANVAS — Three.js will render here -->
+<div class="dash-tracker__canvas" id="tracking-canvas"></div>
+
+            <!-- TIMELINE -->
+            <div class="timeline">
+                <div class="timeline__step timeline__step--done">
+                    <div class="timeline__dot"></div>
+                    <div class="timeline__content">
+                        <div class="timeline__title">Order Placed</div>
+                        <div class="timeline__time">Oct 1, 2024 · 10:24 AM</div>
+                    </div>
+                </div>
+                <div class="timeline__step timeline__step--done">
+                    <div class="timeline__dot"></div>
+                    <div class="timeline__content">
+                        <div class="timeline__title">Picked Up</div>
+                        <div class="timeline__time">Oct 2, 2024 · 2:15 PM</div>
+                    </div>
+                </div>
+                <div class="timeline__step timeline__step--active">
+                    <div class="timeline__dot"></div>
+                    <div class="timeline__content">
+                        <div class="timeline__title">In Transit</div>
+                        <div class="timeline__time">Currently here · Est. delivery Oct 5</div>
+                    </div>
+                </div>
+                <div class="timeline__step">
+                    <div class="timeline__dot"></div>
+                    <div class="timeline__content">
+                        <div class="timeline__title">Out for Delivery</div>
+                        <div class="timeline__time">Pending</div>
+                    </div>
+                </div>
+                <div class="timeline__step">
+                    <div class="timeline__dot"></div>
+                    <div class="timeline__content">
+                        <div class="timeline__title">Delivered</div>
+                        <div class="timeline__time">Pending</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

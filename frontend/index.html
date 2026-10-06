@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaTrack — 3D Order Tracking</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+    <!-- ============================
+         HEADER / NAVIGATION
+         ============================ -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                NOVA<span>.</span>
+            </a>
+
+            <nav class="nav">
+                <a href="#track" class="nav__link">Track Order</a>
+                <a href="#features" class="nav__link">Features</a>
+                <a href="#about" class="nav__link">About</a>
+            </nav>
+
+            <div class="header__actions">
+                <a href="login.html" class="btn btn--ghost">Sign In</a>
+                <a href="signup.html" class="btn btn--primary">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ============================
+         HERO SECTION
+         ============================ -->
+    <section class="hero">
+        <div class="container hero__inner">
+            <div class="hero__content">
+                <div class="badge">
+                    <span class="badge__dot"></span>
+                    Live 3D Tracking
+                </div>
+
+                <h1 class="hero__title">
+                    Track your orders in
+                    <span class="text-gradient">stunning 3D</span>
+                </h1>
+
+                <p class="hero__subtitle">
+                    Follow your package journey in real-time with an immersive
+                    3D visualization. From warehouse to doorstep — see it all.
+                </p>
+
+                <div class="hero__cta">
+                    <a href="signup.html" class="btn btn--primary btn--lg">
+                        Start Tracking Free
+                    </a>
+                    <a href="#track" class="btn btn--outline btn--lg">
+                        Try Live Demo →
+                    </a>
+                </div>
+
+                <div class="hero__stats">
+                    <div class="stat">
+                        <div class="stat__number">50K+</div>
+                        <div class="stat__label">Orders Tracked</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__number">99.9%</div>
+                        <div class="stat__label">Uptime</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat__number">2M+</div>
+                        <div class="stat__label">Data Points</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Scene Placeholder (Three.js will render here later) -->
+            <div class="hero__visual">
+                <div id="hero-canvas" class="hero__canvas"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================
+         TRACKING SECTION
+         ============================ -->
+    <section class="tracking" id="track">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Track Your <span class="text-gradient">Order</span>
+                </h2>
+                <p class="section-subtitle">
+                    Enter your tracking ID to see your package journey
+                </p>
+            </div>
+
+            <form class="tracking__form">
+                <input 
+                    type="text" 
+                    class="input" 
+                    placeholder="e.g. NT-2024-XK9821" 
+                    aria-label="Tracking ID"
+                />
+                <button type="submit" class="btn btn--primary">
+                    Track Now
+                </button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- ============================
+         FEATURES SECTION
+         ============================ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Why <span class="text-gradient">NovaTrack</span>
+                </h2>
+                <p class="section-subtitle">
+                    A tracking experience that feels like the future
+                </p>
+            </div>
+
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">🎯</div>
+                    <h3 class="feature-card__title">Real-time 3D View</h3>
+                    <p class="feature-card__text">
+                        Watch your package move through an interactive 3D map.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card__icon">⚡</div>
+                    <h3 class="feature-card__title">Instant Updates</h3>
+                    <p class="feature-card__text">
+                        Get notified the second your order status changes.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card__icon">🔒</div>
+                    <h3 class="feature-card__title">Secure & Private</h3>
+                    <p class="feature-card__text">
+                        Your data is encrypted with industry-standard security.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-card__icon">📱</div>
+                    <h3 class="feature-card__title">Works Everywhere</h3>
+                    <p class="feature-card__text">
+                        Access from any device — desktop, tablet, or mobile.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ============================
+         FOOTER
+         ============================ -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__brand">
+                <div class="logo">NOVA<span>.</span></div>
+                <p class="footer__tagline">
+                    The future of order tracking.
+                </p>
+            </div>
+
+            <div class="footer__links">
+                <a href="#track">Track</a>
+                <a href="#features">Features</a>
+                <a href="login.html">Sign In</a>
+                <a href="signup.html">Sign Up</a>
+            </div>
+
+            <div class="footer__copy">
+                © 2025 NovaTrack. Built by <strong>Your Name</strong>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

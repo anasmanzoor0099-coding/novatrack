@@ -1,0 +1,23 @@
+# ===== DEPENDENCIES =====
+node_modules/
+package-lock.json
+
+# ===== ENVIRONMENT VARIABLES =====
+.env
+.env.local
+
+# ===== LOGS =====
+*.log
+npm-debug.log*
+
+# ===== OS FILES =====
+.DS_Store
+Thumbs.db
+
+# ===== EDITOR =====
+.vscode/
+.idea/
+
+# ===== BUILD OUTPUT =====
+dist/
+build/
