@@ -4,7 +4,7 @@
    ============================================ */
 
 // ===== API CONFIGURATION =====
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'https://novatrack-api.vercel.app/api/auth';
 
 // ===== UTILITIES =====
 
