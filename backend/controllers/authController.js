@@ -149,5 +149,138 @@ const getMe = async (req, res) => {
         });
     }
 };
+// ===== UPDATE PROFILE =====
+// PUT /api/auth/update-profile
+const updateProfile = async (req, res) => {
+    try {
+        const { name } = req.body;
 
-module.exports = { signup, login, getMe };
+        if (!name || name.trim().length < 2) {
+            return res.status(400).json({
+                success: false,
+                message: 'Please provide a valid name (min 2 characters)',
+            });
+        }
+
+        const user = await User.findById(req.user.id);
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: 'User not found',
+            });
+        }
+
+        user.name = name.trim();
+        await user.save();
+
+        res.status(200).json({
+            success: true,
+            message: 'Profile updated successfully',
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+            },
+        });
+    } catch (error) {
+        console.error('Update profile error:', error);
+        res.status(500).json({
+            success: false,
+            message: error.message || 'Server error',
+        });
+    }
+};
+
+// ===== CHANGE PASSWORD =====
+// PUT /api/auth/change-password
+const changePassword = async (req, res) => {
+    try {
+        const { currentPassword, newPassword } = req.body;
+
+        if (!currentPassword || !newPassword) {
+            return res.status(400).json({
+                success: false,
+                message: 'Please provide current and new password',
+            });
+        }
+
+        if (newPassword.length < 6) {
+            return res.status(400).json({
+                success: false,
+                message: 'New password must be at least 6 characters',
+            });
+        }
+
+        const user = await User.findById(req.user.id).select('+password');
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: 'User not found',
+            });
+        }
+
+        // Verify current password
+        const isMatch = await user.comparePassword(currentPassword);
+
+        if (!isMatch) {
+            return res.status(401).json({
+                success: false,
+                message: 'Current password is incorrect',
+            });
+        }
+
+        // Set new password (will be hashed by pre-save hook)
+        user.password = newPassword;
+        await user.save();
+
+        res.status(200).json({
+            success: true,
+            message: 'Password changed successfully',
+        });
+    } catch (error) {
+        console.error('Change password error:', error);
+        res.status(500).json({
+            success: false,
+            message: error.message || 'Server error',
+        });
+    }
+};
+
+// ===== DELETE ACCOUNT =====
+// DELETE /api/auth/delete-account
+const deleteAccount = async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: 'User not found',
+            });
+        }
+
+        await User.findByIdAndDelete(req.user.id);
+
+        res.status(200).json({
+            success: true,
+            message: 'Account deleted successfully',
+        });
+    } catch (error) {
+        console.error('Delete account error:', error);
+        res.status(500).json({
+            success: false,
+            message: error.message || 'Server error',
+        });
+    }
+};
+module.exports = { 
+    signup, 
+    login, 
+    getMe, 
+    updateProfile, 
+    changePassword, 
+    deleteAccount 
+};

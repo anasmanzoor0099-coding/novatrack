@@ -15,6 +15,38 @@
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/main.css" />
 </head>
+<!-- GSAP — Animation Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- Lenis — Smooth Scroll -->
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<!-- Custom Scripts -->
+<script src="js/animations.js"></script>
+<!-- Three.js — 3D Graphics -->
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+
+<script type="module">
+  import * as THREE from 'three';
+  window.THREE = THREE;
+</script>
+
+<!-- GSAP — Animation Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- Lenis — Smooth Scroll -->
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<!-- Custom Scripts -->
+<script src="js/animations.js"></script>
 <body>
 
     <!-- ============================
@@ -29,7 +61,7 @@
             <nav class="nav">
                 <a href="#track" class="nav__link">Track Order</a>
                 <a href="#features" class="nav__link">Features</a>
-                <a href="#about" class="nav__link">About</a>
+                <a href="about.html" class="nav__link">About</a>
             </nav>
 
             <div class="header__actions">
