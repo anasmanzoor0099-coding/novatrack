@@ -3,69 +3,49 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NovaTrack — 3D Order Tracking</title>
-    
-    <!-- Google Fonts -->
+    <title>NovaTrack — 3D Order Tracking System</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheets -->
+
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Track your orders in stunning 3D visualization. Real-time updates, beautiful design, and modern user experience." />
+    <meta name="keywords" content="order tracking, 3D tracking, package tracking, NovaTrack, logistics" />
+    <meta name="author" content="Anas Manzoor" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://novatrack-frontend.vercel.app" />
+    <meta property="og:title" content="NovaTrack — 3D Order Tracking System" />
+    <meta property="og:description" content="Track your orders in stunning 3D visualization." />
+    <meta property="og:site_name" content="NovaTrack" />
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NovaTrack — 3D Order Tracking System" />
+    <meta name="twitter:description" content="Track your orders in stunning 3D visualization." />
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/mobile.css" />
 </head>
-<!-- GSAP — Animation Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<!-- Lenis — Smooth Scroll -->
-<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-
-<!-- Custom Scripts -->
-<script src="js/animations.js"></script>
-<!-- Three.js — 3D Graphics -->
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
-  }
-}
-</script>
-
-<script type="module">
-  import * as THREE from 'three';
-  window.THREE = THREE;
-</script>
-
-<!-- GSAP — Animation Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<!-- Lenis — Smooth Scroll -->
-<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-
-<!-- Custom Scripts -->
-<script src="js/animations.js"></script>
 <body>
 
-    <!-- ============================
-         HEADER / NAVIGATION
-         ============================ -->
+    <!-- HEADER -->
     <header class="header">
         <div class="container header__inner">
-            <a href="index.html" class="logo">
-                NOVA<span>.</span>
-            </a>
+            <a href="index.html" class="logo">NOVA<span>.</span></a>
 
-           <nav class="nav">
-    <a href="index.html" class="nav__link active">Home</a>
-    <a href="about.html" class="nav__link">About</a>
-    <a href="pricing.html" class="nav__link">Pricing</a>
-    <a href="faq.html" class="nav__link">FAQ</a>
-    <a href="contact.html" class="nav__link">Contact</a>
-</nav>
+            <nav class="nav">
+                <a href="index.html" class="nav__link active">Home</a>
+                <a href="about.html" class="nav__link">About</a>
+                <a href="pricing.html" class="nav__link">Pricing</a>
+                <a href="faq.html" class="nav__link">FAQ</a>
+                <a href="contact.html" class="nav__link">Contact</a>
+            </nav>
 
             <div class="header__actions">
                 <a href="login.html" class="btn btn--ghost">Sign In</a>
@@ -74,10 +54,7 @@
         </div>
     </header>
 
-
-    <!-- ============================
-         HERO SECTION
-         ============================ -->
+    <!-- HERO -->
     <section class="hero">
         <div class="container hero__inner">
             <div class="hero__content">
@@ -97,12 +74,8 @@
                 </p>
 
                 <div class="hero__cta">
-                    <a href="signup.html" class="btn btn--primary btn--lg">
-                        Start Tracking Free
-                    </a>
-                    <a href="#track" class="btn btn--outline btn--lg">
-                        Try Live Demo →
-                    </a>
+                    <a href="signup.html" class="btn btn--primary btn--lg">Start Tracking Free</a>
+                    <a href="#track" class="btn btn--outline btn--lg">Try Live Demo →</a>
                 </div>
 
                 <div class="hero__stats">
@@ -121,121 +94,94 @@
                 </div>
             </div>
 
-            <!-- 3D Scene Placeholder (Three.js will render here later) -->
             <div class="hero__visual">
                 <div id="hero-canvas" class="hero__canvas"></div>
             </div>
         </div>
     </section>
 
-
-    <!-- ============================
-         TRACKING SECTION
-         ============================ -->
+    <!-- TRACKING SECTION -->
     <section class="tracking" id="track">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">
-                    Track Your <span class="text-gradient">Order</span>
-                </h2>
-                <p class="section-subtitle">
-                    Enter your tracking ID to see your package journey
-                </p>
+                <h2 class="section-title">Track Your <span class="text-gradient">Order</span></h2>
+                <p class="section-subtitle">Enter your tracking ID to see your package journey</p>
             </div>
 
             <form class="tracking__form">
-                <input 
-                    type="text" 
-                    class="input" 
-                    placeholder="e.g. NT-2024-XK9821" 
-                    aria-label="Tracking ID"
-                />
-                <button type="submit" class="btn btn--primary">
-                    Track Now
-                </button>
+                <input type="text" class="input" placeholder="e.g. NT-2024-XK9821" aria-label="Tracking ID" />
+                <button type="submit" class="btn btn--primary">Track Now</button>
             </form>
         </div>
     </section>
 
-
-    <!-- ============================
-         FEATURES SECTION
-         ============================ -->
+    <!-- FEATURES -->
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">
-                    Why <span class="text-gradient">NovaTrack</span>
-                </h2>
-                <p class="section-subtitle">
-                    A tracking experience that feels like the future
-                </p>
+                <h2 class="section-title">Why <span class="text-gradient">NovaTrack</span></h2>
+                <p class="section-subtitle">A tracking experience that feels like the future</p>
             </div>
 
             <div class="features__grid">
                 <div class="feature-card">
                     <div class="feature-card__icon">🎯</div>
                     <h3 class="feature-card__title">Real-time 3D View</h3>
-                    <p class="feature-card__text">
-                        Watch your package move through an interactive 3D map.
-                    </p>
+                    <p class="feature-card__text">Watch your package move through an interactive 3D map.</p>
                 </div>
-
                 <div class="feature-card">
                     <div class="feature-card__icon">⚡</div>
                     <h3 class="feature-card__title">Instant Updates</h3>
-                    <p class="feature-card__text">
-                        Get notified the second your order status changes.
-                    </p>
+                    <p class="feature-card__text">Get notified the second your order status changes.</p>
                 </div>
-
                 <div class="feature-card">
                     <div class="feature-card__icon">🔒</div>
                     <h3 class="feature-card__title">Secure & Private</h3>
-                    <p class="feature-card__text">
-                        Your data is encrypted with industry-standard security.
-                    </p>
+                    <p class="feature-card__text">Your data is encrypted with industry-standard security.</p>
                 </div>
-
                 <div class="feature-card">
                     <div class="feature-card__icon">📱</div>
                     <h3 class="feature-card__title">Works Everywhere</h3>
-                    <p class="feature-card__text">
-                        Access from any device — desktop, tablet, or mobile.
-                    </p>
+                    <p class="feature-card__text">Access from any device — desktop, tablet, or mobile.</p>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- ============================
-         FOOTER
-         ============================ -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container footer__inner">
             <div class="footer__brand">
                 <div class="logo">NOVA<span>.</span></div>
-                <p class="footer__tagline">
-                    The future of order tracking.
-                </p>
+                <p class="footer__tagline">The future of order tracking.</p>
             </div>
 
             <div class="footer__links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="pricing.html">Pricing</a>
-    <a href="faq.html">FAQ</a>
-    <a href="contact.html">Contact</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-</div>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+            </div>
 
             <div class="footer__copy">
-                © 2025 NovaTrack. Built by <strong>Your Name</strong>
+                © 2025 NovaTrack. Built by <strong>Anas Manzoor</strong>
             </div>
         </div>
     </footer>
 
+    <script type="importmap">
+    { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+    </script>
+    <script type="module">
+      import * as THREE from 'three';
+      window.THREE = THREE;
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

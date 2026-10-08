@@ -9,6 +9,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Manage your NovaTrack account, profile, password, and preferences." />
+    <meta name="keywords" content="settings, account, profile, novatrack settings" />
+    <meta name="author" content="Anas Manzoor" />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://novatrack-frontend.vercel.app/settings.html" />
+    <meta property="og:title" content="Settings — NovaTrack" />
+    <meta property="og:description" content="Manage your NovaTrack account, profile, and preferences." />
+    <meta property="og:site_name" content="NovaTrack" />
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Settings — NovaTrack" />
+    <meta name="twitter:description" content="Manage your NovaTrack account, profile, and preferences." />
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/main.css" />
@@ -18,34 +36,19 @@
 </head>
 <body class="dash-body">
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
-        <a href="index.html" class="logo sidebar__logo">
-            NOVA<span>.</span>
-        </a>
+        <a href="index.html" class="logo sidebar__logo">NOVA<span>.</span></a>
 
         <nav class="sidebar__nav">
-            <a href="dashboard.html" class="sidebar__link">
-                <span>📊</span> Dashboard
-            </a>
-            <a href="#" class="sidebar__link">
-                <span>📦</span> My Orders
-            </a>
-            <a href="#" class="sidebar__link">
-                <span>🚚</span> Shipments
-            </a>
-            <a href="settings.html" class="sidebar__link active">
-                <span>⚙️</span> Settings
-            </a>
+            <a href="dashboard.html" class="sidebar__link"><span>📊</span> Dashboard</a>
+            <a href="#" class="sidebar__link"><span>📦</span> My Orders</a>
+            <a href="#" class="sidebar__link"><span>🚚</span> Shipments</a>
+            <a href="settings.html" class="sidebar__link active"><span>⚙️</span> Settings</a>
         </nav>
 
-        <button class="sidebar__logout" id="logoutBtn">
-            <span>↪</span> Logout
-        </button>
+        <button class="sidebar__logout" id="logoutBtn"><span>↪</span> Logout</button>
     </aside>
 
-
-    <!-- MAIN CONTENT -->
     <main class="dash-main">
 
         <header class="dash-header">
@@ -59,82 +62,47 @@
             </div>
         </header>
 
-
-        <!-- SETTINGS TABS -->
         <div class="settings-tabs">
-            <button class="settings-tab active" data-tab="profile">
-                👤 Profile
-            </button>
-            <button class="settings-tab" data-tab="password">
-                🔒 Password
-            </button>
-            <button class="settings-tab" data-tab="preferences">
-                ⚙️ Preferences
-            </button>
-            <button class="settings-tab" data-tab="danger">
-                ⚠️ Danger Zone
-            </button>
+            <button class="settings-tab active" data-tab="profile">👤 Profile</button>
+            <button class="settings-tab" data-tab="password">🔒 Password</button>
+            <button class="settings-tab" data-tab="preferences">⚙️ Preferences</button>
+            <button class="settings-tab" data-tab="danger">⚠️ Danger Zone</button>
         </div>
 
-
-        <!-- TAB 1: PROFILE -->
         <section class="settings-panel active" data-panel="profile">
             <div class="settings-card">
                 <h2 class="settings-card__title">Profile Information</h2>
-                <p class="settings-card__subtitle">
-                    Update your personal details
-                </p>
+                <p class="settings-card__subtitle">Update your personal details</p>
 
                 <form id="profileForm" class="form">
                     <div class="form__group">
                         <label for="profileName" class="form__label">Full Name</label>
-                        <input
-                            type="text"
-                            id="profileName"
-                            class="form__input"
-                            placeholder="Your name"
-                        />
+                        <input type="text" id="profileName" class="form__input" placeholder="Your name" />
                     </div>
 
                     <div class="form__group">
                         <label for="profileEmail" class="form__label">Email</label>
-                        <input
-                            type="email"
-                            id="profileEmail"
-                            class="form__input"
-                            disabled
-                        />
+                        <input type="email" id="profileEmail" class="form__input" disabled />
                         <p class="form__hint">Email cannot be changed</p>
                     </div>
 
                     <div class="form__message" id="profileMessage"></div>
 
-                    <button type="submit" class="btn btn--primary" id="profileSubmit">
-                        Save Changes
-                    </button>
+                    <button type="submit" class="btn btn--primary" id="profileSubmit">Save Changes</button>
                 </form>
             </div>
         </section>
 
-
-        <!-- TAB 2: PASSWORD -->
         <section class="settings-panel" data-panel="password">
             <div class="settings-card">
                 <h2 class="settings-card__title">Change Password</h2>
-                <p class="settings-card__subtitle">
-                    Keep your account secure with a strong password
-                </p>
+                <p class="settings-card__subtitle">Keep your account secure with a strong password</p>
 
                 <form id="passwordForm" class="form">
                     <div class="form__group">
                         <label for="currentPassword" class="form__label">Current Password</label>
                         <div class="form__input-wrapper">
-                            <input
-                                type="password"
-                                id="currentPassword"
-                                class="form__input"
-                                placeholder="Enter current password"
-                            />
+                            <input type="password" id="currentPassword" class="form__input" placeholder="Enter current password" />
                             <button type="button" class="form__toggle-pw" data-toggle="currentPassword">👁</button>
                         </div>
                     </div>
@@ -142,12 +110,7 @@
                     <div class="form__group">
                         <label for="newPassword" class="form__label">New Password</label>
                         <div class="form__input-wrapper">
-                            <input
-                                type="password"
-                                id="newPassword"
-                                class="form__input"
-                                placeholder="Minimum 6 characters"
-                            />
+                            <input type="password" id="newPassword" class="form__input" placeholder="Minimum 6 characters" />
                             <button type="button" class="form__toggle-pw" data-toggle="newPassword">👁</button>
                         </div>
                     </div>
@@ -155,40 +118,27 @@
                     <div class="form__group">
                         <label for="confirmNewPassword" class="form__label">Confirm New Password</label>
                         <div class="form__input-wrapper">
-                            <input
-                                type="password"
-                                id="confirmNewPassword"
-                                class="form__input"
-                                placeholder="Confirm new password"
-                            />
+                            <input type="password" id="confirmNewPassword" class="form__input" placeholder="Confirm new password" />
                             <button type="button" class="form__toggle-pw" data-toggle="confirmNewPassword">👁</button>
                         </div>
                     </div>
 
                     <div class="form__message" id="passwordMessage"></div>
 
-                    <button type="submit" class="btn btn--primary" id="passwordSubmit">
-                        Update Password
-                    </button>
+                    <button type="submit" class="btn btn--primary" id="passwordSubmit">Update Password</button>
                 </form>
             </div>
         </section>
 
-
-        <!-- TAB 3: PREFERENCES -->
         <section class="settings-panel" data-panel="preferences">
             <div class="settings-card">
                 <h2 class="settings-card__title">Preferences</h2>
-                <p class="settings-card__subtitle">
-                    Customize your experience
-                </p>
+                <p class="settings-card__subtitle">Customize your experience</p>
 
                 <div class="preference-item">
                     <div>
                         <div class="preference-item__title">Email Notifications</div>
-                        <div class="preference-item__desc">
-                            Receive updates about your orders
-                        </div>
+                        <div class="preference-item__desc">Receive updates about your orders</div>
                     </div>
                     <label class="switch">
                         <input type="checkbox" id="emailNotif" checked />
@@ -199,9 +149,7 @@
                 <div class="preference-item">
                     <div>
                         <div class="preference-item__title">Order Updates</div>
-                        <div class="preference-item__desc">
-                            Get notified when order status changes
-                        </div>
+                        <div class="preference-item__desc">Get notified when order status changes</div>
                     </div>
                     <label class="switch">
                         <input type="checkbox" id="orderNotif" checked />
@@ -212,9 +160,7 @@
                 <div class="preference-item">
                     <div>
                         <div class="preference-item__title">Marketing Emails</div>
-                        <div class="preference-item__desc">
-                            Product news and updates
-                        </div>
+                        <div class="preference-item__desc">Product news and updates</div>
                     </div>
                     <label class="switch">
                         <input type="checkbox" id="marketingNotif" />
@@ -224,33 +170,23 @@
             </div>
         </section>
 
-
-        <!-- TAB 4: DANGER ZONE -->
         <section class="settings-panel" data-panel="danger">
             <div class="settings-card settings-card--danger">
                 <h2 class="settings-card__title">⚠️ Danger Zone</h2>
-                <p class="settings-card__subtitle">
-                    Irreversible and destructive actions
-                </p>
+                <p class="settings-card__subtitle">Irreversible and destructive actions</p>
 
                 <div class="danger-item">
                     <div>
                         <div class="danger-item__title">Delete Account</div>
-                        <div class="danger-item__desc">
-                            Permanently delete your account and all data. This cannot be undone.
-                        </div>
+                        <div class="danger-item__desc">Permanently delete your account and all data. This cannot be undone.</div>
                     </div>
-                    <button class="btn btn--danger" id="deleteAccountBtn">
-                        Delete Account
-                    </button>
+                    <button class="btn btn--danger" id="deleteAccountBtn">Delete Account</button>
                 </div>
             </div>
         </section>
 
     </main>
 
-
-    <!-- DELETE CONFIRMATION MODAL -->
     <div class="modal" id="deleteModal">
         <div class="modal__overlay"></div>
         <div class="modal__content">
@@ -259,21 +195,13 @@
                 This action is <strong>permanent</strong>. All your data will be deleted.
                 Type <code>DELETE</code> to confirm.
             </p>
-            <input
-                type="text"
-                id="deleteConfirmInput"
-                class="form__input"
-                placeholder='Type "DELETE"'
-            />
+            <input type="text" id="deleteConfirmInput" class="form__input" placeholder='Type "DELETE"' />
             <div class="modal__actions">
                 <button class="btn btn--ghost" id="cancelDelete">Cancel</button>
-                <button class="btn btn--danger" id="confirmDelete" disabled>
-                    Delete Permanently
-                </button>
+                <button class="btn btn--danger" id="confirmDelete" disabled>Delete Permanently</button>
             </div>
         </div>
     </div>
-
 
     <script src="js/settings.js"></script>
 </body>

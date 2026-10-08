@@ -9,6 +9,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Simple, transparent pricing. Start free, upgrade anytime. No hidden fees, cancel anytime." />
+    <meta name="keywords" content="pricing, plans, free, pro, business, nova track pricing" />
+    <meta name="author" content="Anas Manzoor" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://novatrack-frontend.vercel.app/pricing.html" />
+    <meta property="og:title" content="Pricing — NovaTrack" />
+    <meta property="og:description" content="Simple, transparent pricing for every business size." />
+    <meta property="og:site_name" content="NovaTrack" />
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pricing — NovaTrack" />
+    <meta name="twitter:description" content="Simple, transparent pricing for every business size." />
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/main.css" />
@@ -17,14 +35,9 @@
 </head>
 <body>
 
-    <!-- ============================
-         HEADER / NAVIGATION
-         ============================ -->
     <header class="header">
         <div class="container header__inner">
-            <a href="index.html" class="logo">
-                NOVA<span>.</span>
-            </a>
+            <a href="index.html" class="logo">NOVA<span>.</span></a>
 
             <nav class="nav">
                 <a href="index.html" class="nav__link">Home</a>
@@ -41,27 +54,19 @@
         </div>
     </header>
 
-
-    <!-- ============================
-         HERO
-         ============================ -->
     <section class="pricing-hero">
         <div class="container">
             <div class="badge">
                 <span class="badge__dot"></span>
                 Simple Pricing
             </div>
-
             <h1 class="pricing-hero__title">
-                Plans that grow with
-                <span class="text-gradient">your business</span>
+                Plans that grow with <span class="text-gradient">your business</span>
             </h1>
-
             <p class="pricing-hero__subtitle">
                 Start free, upgrade when you need more. No hidden fees, cancel anytime.
             </p>
 
-            <!-- Billing Toggle -->
             <div class="billing-toggle">
                 <button class="billing-toggle__btn active" data-period="monthly">Monthly</button>
                 <button class="billing-toggle__btn" data-period="yearly">
@@ -72,15 +77,9 @@
         </div>
     </section>
 
-
-    <!-- ============================
-         PRICING PLANS
-         ============================ -->
     <section class="pricing-section">
         <div class="container">
             <div class="pricing-grid">
-
-                <!-- FREE PLAN -->
                 <div class="pricing-card">
                     <div class="pricing-card__header">
                         <div class="pricing-card__name">Free</div>
@@ -89,28 +88,19 @@
                             <span class="pricing-card__amount" data-monthly="0" data-yearly="0">0</span>
                             <span class="pricing-card__period">/month</span>
                         </div>
-                        <p class="pricing-card__desc">
-                            Perfect for personal projects and testing.
-                        </p>
+                        <p class="pricing-card__desc">Perfect for personal projects and testing.</p>
                     </div>
-
                     <ul class="pricing-card__features">
                         <li>✅ 10 orders / month</li>
                         <li>✅ Basic 3D tracking</li>
                         <li>✅ Email support</li>
                         <li>✅ Community access</li>
                     </ul>
-
-                    <a href="signup.html" class="btn btn--outline btn--lg pricing-card__cta">
-                        Get Started Free
-                    </a>
+                    <a href="signup.html" class="btn btn--outline btn--lg pricing-card__cta">Get Started Free</a>
                 </div>
 
-
-                <!-- PRO PLAN (MOST POPULAR) -->
                 <div class="pricing-card pricing-card--featured">
                     <div class="pricing-card__badge">Most Popular</div>
-
                     <div class="pricing-card__header">
                         <div class="pricing-card__name">Pro</div>
                         <div class="pricing-card__price">
@@ -118,11 +108,8 @@
                             <span class="pricing-card__amount" data-monthly="29" data-yearly="23">29</span>
                             <span class="pricing-card__period">/month</span>
                         </div>
-                        <p class="pricing-card__desc">
-                            For growing businesses with real needs.
-                        </p>
+                        <p class="pricing-card__desc">For growing businesses with real needs.</p>
                     </div>
-
                     <ul class="pricing-card__features">
                         <li>✅ 500 orders / month</li>
                         <li>✅ Advanced 3D tracking</li>
@@ -131,14 +118,9 @@
                         <li>✅ Custom domains</li>
                         <li>✅ Analytics dashboard</li>
                     </ul>
-
-                    <a href="signup.html" class="btn btn--primary btn--lg pricing-card__cta">
-                        Start Free Trial
-                    </a>
+                    <a href="signup.html" class="btn btn--primary btn--lg pricing-card__cta">Start Free Trial</a>
                 </div>
 
-
-                <!-- BUSINESS PLAN -->
                 <div class="pricing-card">
                     <div class="pricing-card__header">
                         <div class="pricing-card__name">Business</div>
@@ -147,11 +129,8 @@
                             <span class="pricing-card__amount" data-monthly="99" data-yearly="79">99</span>
                             <span class="pricing-card__period">/month</span>
                         </div>
-                        <p class="pricing-card__desc">
-                            For large teams with enterprise needs.
-                        </p>
+                        <p class="pricing-card__desc">For large teams with enterprise needs.</p>
                     </div>
-
                     <ul class="pricing-card__features">
                         <li>✅ Unlimited orders</li>
                         <li>✅ Everything in Pro</li>
@@ -161,26 +140,16 @@
                         <li>✅ White-label option</li>
                         <li>✅ Onboarding assistance</li>
                     </ul>
-
-                    <a href="contact.html" class="btn btn--outline btn--lg pricing-card__cta">
-                        Contact Sales
-                    </a>
+                    <a href="contact.html" class="btn btn--outline btn--lg pricing-card__cta">Contact Sales</a>
                 </div>
-
             </div>
         </div>
     </section>
 
-
-    <!-- ============================
-         COMPARISON TABLE
-         ============================ -->
     <section class="comparison">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">
-                    Compare <span class="text-gradient">Features</span>
-                </h2>
+                <h2 class="section-title">Compare <span class="text-gradient">Features</span></h2>
                 <p class="section-subtitle">Everything you need, side by side</p>
             </div>
 
@@ -195,124 +164,52 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Monthly Orders</td>
-                            <td>10</td>
-                            <td>500</td>
-                            <td>Unlimited</td>
-                        </tr>
-                        <tr>
-                            <td>3D Tracking</td>
-                            <td>Basic</td>
-                            <td>Advanced</td>
-                            <td>Advanced</td>
-                        </tr>
-                        <tr>
-                            <td>API Access</td>
-                            <td>❌</td>
-                            <td>✅</td>
-                            <td>✅</td>
-                        </tr>
-                        <tr>
-                            <td>Custom Domain</td>
-                            <td>❌</td>
-                            <td>✅</td>
-                            <td>✅</td>
-                        </tr>
-                        <tr>
-                            <td>Analytics</td>
-                            <td>Basic</td>
-                            <td>Advanced</td>
-                            <td>Advanced</td>
-                        </tr>
-                        <tr>
-                            <td>Support</td>
-                            <td>Email</td>
-                            <td>Priority</td>
-                            <td>24/7 Dedicated</td>
-                        </tr>
-                        <tr>
-                            <td>SLA</td>
-                            <td>❌</td>
-                            <td>❌</td>
-                            <td>✅</td>
-                        </tr>
+                        <tr><td>Monthly Orders</td><td>10</td><td>500</td><td>Unlimited</td></tr>
+                        <tr><td>3D Tracking</td><td>Basic</td><td>Advanced</td><td>Advanced</td></tr>
+                        <tr><td>API Access</td><td>❌</td><td>✅</td><td>✅</td></tr>
+                        <tr><td>Custom Domain</td><td>❌</td><td>✅</td><td>✅</td></tr>
+                        <tr><td>Analytics</td><td>Basic</td><td>Advanced</td><td>Advanced</td></tr>
+                        <tr><td>Support</td><td>Email</td><td>Priority</td><td>24/7 Dedicated</td></tr>
+                        <tr><td>SLA</td><td>❌</td><td>❌</td><td>✅</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-
-    <!-- ============================
-         FAQ
-         ============================ -->
     <section class="pricing-faq">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">
-                    Frequently Asked <span class="text-gradient">Questions</span>
-                </h2>
+                <h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
                 <p class="section-subtitle">Everything you need to know</p>
             </div>
 
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-item__question">
-                        Can I change plans anytime?
-                        <span class="faq-item__icon">+</span>
-                    </button>
-                    <div class="faq-item__answer">
-                        <p>Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately.</p>
-                    </div>
+                    <button class="faq-item__question">Can I change plans anytime?<span class="faq-item__icon">+</span></button>
+                    <div class="faq-item__answer"><p>Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately.</p></div>
                 </div>
-
                 <div class="faq-item">
-                    <button class="faq-item__question">
-                        Is there a free trial?
-                        <span class="faq-item__icon">+</span>
-                    </button>
-                    <div class="faq-item__answer">
-                        <p>Yes, all paid plans come with a 14-day free trial. No credit card required.</p>
-                    </div>
+                    <button class="faq-item__question">Is there a free trial?<span class="faq-item__icon">+</span></button>
+                    <div class="faq-item__answer"><p>Yes, all paid plans come with a 14-day free trial. No credit card required.</p></div>
                 </div>
-
                 <div class="faq-item">
-                    <button class="faq-item__question">
-                        What payment methods do you accept?
-                        <span class="faq-item__icon">+</span>
-                    </button>
-                    <div class="faq-item__answer">
-                        <p>We accept all major credit cards, debit cards, and bank transfers.</p>
-                    </div>
+                    <button class="faq-item__question">What payment methods do you accept?<span class="faq-item__icon">+</span></button>
+                    <div class="faq-item__answer"><p>We accept all major credit cards, debit cards, and bank transfers.</p></div>
                 </div>
-
                 <div class="faq-item">
-                    <button class="faq-item__question">
-                        Can I cancel anytime?
-                        <span class="faq-item__icon">+</span>
-                    </button>
-                    <div class="faq-item__answer">
-                        <p>Absolutely. No contracts, no commitments. Cancel anytime with one click.</p>
-                    </div>
+                    <button class="faq-item__question">Can I cancel anytime?<span class="faq-item__icon">+</span></button>
+                    <div class="faq-item__answer"><p>Absolutely. No contracts, no commitments. Cancel anytime with one click.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- ============================
-         CTA
-         ============================ -->
     <section class="pricing-cta">
         <div class="container">
             <div class="cta-card">
-                <h2 class="cta-card__title">
-                    Still have <span class="text-gradient">questions</span>?
-                </h2>
-                <p class="cta-card__text">
-                    Our team is here to help you choose the right plan.
-                </p>
+                <h2 class="cta-card__title">Still have <span class="text-gradient">questions</span>?</h2>
+                <p class="cta-card__text">Our team is here to help you choose the right plan.</p>
                 <div class="cta-card__actions">
                     <a href="contact.html" class="btn btn--primary btn--lg">Talk to Sales</a>
                     <a href="signup.html" class="btn btn--outline btn--lg">Start Free →</a>
@@ -321,10 +218,6 @@
         </div>
     </section>
 
-
-    <!-- ============================
-         FOOTER
-         ============================ -->
     <footer class="footer">
         <div class="container footer__inner">
             <div class="footer__brand">
@@ -348,8 +241,6 @@
         </div>
     </footer>
 
-
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
