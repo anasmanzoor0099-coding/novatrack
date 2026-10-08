@@ -2,7 +2,7 @@
    SETTINGS PAGE — Full Logic
    ============================================ */
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'https://novatrack-api.vercel.app/api/auth';
 
 // ===== AUTH CHECK =====
 const session = JSON.parse(localStorage.getItem('nt_session') || 'null');
