@@ -335,3 +335,98 @@
         width: 100%;
     }
 }
+/* ===== FORM STYLING (STRONG OVERRIDE) ===== */
+.settings-panel .form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.settings-panel .form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.settings-panel .form__label {
+    font-size: var(--fs-sm) !important;
+    font-weight: 500 !important;
+    color: var(--color-text-muted) !important;
+}
+
+.settings-panel .form__input-wrapper {
+    position: relative;
+}
+
+.settings-panel .form__input {
+    width: 100% !important;
+    padding: 0.9rem 1.1rem !important;
+    background: var(--color-surface-2) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--color-text) !important;
+    font-size: var(--fs-base) !important;
+    font-family: var(--font-body) !important;
+    transition: all var(--transition-base) !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+}
+
+.settings-panel .form__input::placeholder {
+    color: var(--color-text-dim) !important;
+    opacity: 0.7 !important;
+}
+
+.settings-panel .form__input:focus {
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 0 0 4px var(--color-primary-glow) !important;
+    background: var(--color-surface) !important;
+}
+
+.settings-panel .form__input:disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+    background: var(--color-surface-2) !important;
+    color: var(--color-text-muted) !important;
+}
+
+.settings-panel .form__toggle-pw {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem;
+    font-size: 1rem;
+    opacity: 0.6;
+    transition: opacity var(--transition-fast);
+    border-radius: var(--radius-sm);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.settings-panel .form__toggle-pw:hover {
+    opacity: 1;
+}
+
+.settings-panel .form__hint {
+    font-size: var(--fs-xs) !important;
+    color: var(--color-text-dim) !important;
+    margin-top: 0.25rem;
+}
+
+.settings-panel .form__message {
+    font-size: var(--fs-sm) !important;
+    min-height: 1.2rem;
+    text-align: center;
+}
+
+.settings-panel .form__message--error {
+    color: var(--color-danger) !important;
+}
+
+.settings-panel .form__message--success {
+    color: var(--color-success) !important;
+}
