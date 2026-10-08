@@ -341,3 +341,42 @@ function initHero3D(container) {
 }
 
 console.log('✅ NovaTrack animations loaded');
+// ===== HAMBURGER MENU =====
+document.addEventListener('DOMContentLoaded', () => {
+    const header = document.querySelector('.header__inner');
+    const nav = document.querySelector('.nav');
+    
+    if (!header || !nav) return;
+    
+    // Create hamburger if it doesn't exist
+    let hamburger = document.querySelector('.hamburger');
+    
+    if (!hamburger) {
+        hamburger = document.createElement('button');
+        hamburger.className = 'hamburger';
+        hamburger.setAttribute('aria-label', 'Toggle menu');
+        hamburger.innerHTML = '<span></span><span></span><span></span>';
+        
+        // Insert before header__actions
+        const actions = header.querySelector('.header__actions');
+        if (actions) {
+            header.insertBefore(hamburger, actions);
+        } else {
+            header.appendChild(hamburger);
+        }
+    }
+    
+    // Toggle menu
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+    
+    // Close menu on link click (mobile)
+    nav.querySelectorAll('.nav__link').forEach((link) => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            nav.classList.remove('active');
+        });
+    });
+});
