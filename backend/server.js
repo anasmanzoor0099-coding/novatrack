@@ -9,6 +9,7 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/auth');
+const contactRoutes = require('./routes/contact');
 require('dotenv').config();
 
 // ===== APP SETUP =====
@@ -21,6 +22,7 @@ app.use(express.json());
 
 // ===== API ROUTES =====
 app.use('/api/auth', authRoutes);
+app.use('/api/contact' , contactRoutes);
 
 // ===== TEST ROUTES =====
 app.get('/', (req, res) => {
