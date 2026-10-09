@@ -116,8 +116,7 @@ if (profileForm) {
             return showMessage('profileMessage', 'Name must be at least 2 characters');
         }
 
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Saving...';
+        setButtonLoading(submitBtn, 'Saving...');
 
         try {
             const data = await apiCall('/update-profile', {
@@ -137,8 +136,7 @@ if (profileForm) {
         } catch (err) {
             showMessage('profileMessage', err.message);
         } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Save Changes';
+            unsetButtonLoading(submitBtn);
         }
     });
 }
@@ -167,8 +165,7 @@ if (passwordForm) {
             return showMessage('passwordMessage', 'New passwords do not match');
         }
 
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Updating...';
+        unsetButtonLoading(submitBtn);
 
         try {
             await apiCall('/change-password', {

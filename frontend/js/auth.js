@@ -64,8 +64,7 @@ if (loginForm) {
         }
 
         // --- Loading state ---
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Signing in...';
+       setButtonLoading(submitBtn, 'Signing in...');
 
         try {
             // --- REAL BACKEND CALL ---
@@ -102,8 +101,7 @@ if (loginForm) {
             console.error('Login error:', err);
             showMessage(err.message || 'Cannot connect to server. Is it running?');
         } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Sign In';
+            unsetButtonLoading(submitBtn);
         }
     });
 }

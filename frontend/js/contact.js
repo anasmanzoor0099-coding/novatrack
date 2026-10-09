@@ -116,8 +116,7 @@ if (contactForm) {
         }
 
         // Submit
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
+        setButtonLoading(submitBtn, 'Sending...');
 
         try {
             const response = await fetch(API_URL, {
@@ -138,8 +137,7 @@ if (contactForm) {
             console.error('Contact form error:', err);
             showMessage(err.message || 'Something went wrong. Please try again.');
         } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message →';
+            unsetButtonLoading(submitBtn);
         }
     });
 }
