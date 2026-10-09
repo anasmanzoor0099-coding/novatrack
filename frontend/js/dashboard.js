@@ -1,5 +1,5 @@
 /* ============================================
-   3D SCENE — Three.js Import
+   3D SCEconst sessNE — Three.js Import
    ============================================ */
 import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 /* ============================================
@@ -12,20 +12,30 @@ const session = JSON.parse(localStorage.getItem('nt_session') || 'null');
 if (!session) {
     window.location.href = 'login.html';
 } else {
-    const userNameEl = document.getElementById('userName');
-    const avatarEl = document.getElementById('userAvatar');
-
-    // Naya structure: session.user.name
     const user = session.user || session;
     const fullName = user.name || 'User';
+    const firstName = fullName.split(' ')[0];
+    const initial = fullName.charAt(0).toUpperCase();
 
-    if (userNameEl) {
-        userNameEl.textContent = fullName.split(' ')[0];
-    }
+    // Top bar
+    const userNameEl = document.getElementById('userName');
+    const userEmailEl = document.getElementById('userEmail');
+    const avatarEl = document.getElementById('userAvatar');
 
-    if (avatarEl) {
-        avatarEl.textContent = fullName.charAt(0).toUpperCase();
-    }
+    if (userNameEl) userNameEl.textContent = firstName;
+    if (userEmailEl) userEmailEl.textContent = user.email || '';
+    if (avatarEl) avatarEl.textContent = initial;
+
+    // Sidebar
+    const sidebarName = document.getElementById('sidebarName');
+    const sidebarAvatar = document.getElementById('sidebarAvatar');
+
+    if (sidebarName) sidebarName.textContent = firstName;
+    if (sidebarAvatar) sidebarAvatar.textContent = initial;
+
+    // Welcome
+    const welcomeName = document.getElementById('welcomeName');
+    if (welcomeName) welcomeName.textContent = firstName;
 }
 
 // ===== LOGOUT =====

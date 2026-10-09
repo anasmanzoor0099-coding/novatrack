@@ -10,37 +10,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 
     <!-- ===== SEO META TAGS ===== -->
-    <meta name="description" content="Your NovaTrack dashboard with real-time 3D order tracking, analytics, and order management." />
-    <meta name="keywords" content="dashboard, orders, tracking, novatrack, order management" />
+    <meta name="description" content="Your NovaTrack dashboard with real-time 3D order tracking and analytics." />
+    <meta name="keywords" content="dashboard, orders, tracking, novatrack" />
     <meta name="author" content="Anas Manzoor" />
     <meta name="robots" content="noindex, nofollow" />
 
-    <!-- ===== OPEN GRAPH ===== -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://novatrack-frontend.vercel.app/dashboard.html" />
     <meta property="og:title" content="Dashboard — NovaTrack" />
-    <meta property="og:description" content="Your NovaTrack dashboard with real-time 3D order tracking." />
+    <meta property="og:description" content="Your NovaTrack dashboard." />
     <meta property="og:site_name" content="NovaTrack" />
 
-    <!-- ===== TWITTER CARD ===== -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dashboard — NovaTrack" />
-    <meta name="twitter:description" content="Your NovaTrack dashboard with real-time 3D order tracking." />
+    <meta name="twitter:description" content="Your NovaTrack dashboard." />
 
     <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="favicon.ico" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/variables.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/loading.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/mobile.css" />
-    <link rel="stylesheet" href="css/loading.css" />
 </head>
 <body class="dash-body">
+
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="page-loader__logo">NOVA<span>.</span></div>
+        <div class="page-loader__spinner"></div>
+        <div class="page-loader__text">Loading...</div>
+    </div>
 
     <!-- ============================
          SIDEBAR
@@ -51,24 +55,49 @@
         </a>
 
         <nav class="sidebar__nav">
-            <a href="dashboard.html" class="sidebar__link active">
-                <span>📊</span> Dashboard
-            </a>
-            <a href="#" class="sidebar__link">
-                <span>📦</span> My Orders
-            </a>
-            <a href="#" class="sidebar__link">
-                <span>🚚</span> Shipments
-            </a>
-            <a href="settings.html" class="sidebar__link">
-                <span>⚙️</span> Settings
-            </a>
+            <div class="sidebar__section">
+                <div class="sidebar__label">Main</div>
+                <a href="dashboard.html" class="sidebar__link active">
+                    <span>📊</span> Dashboard
+                </a>
+                <a href="#" class="sidebar__link">
+                    <span>📦</span> My Orders
+                    <span class="sidebar__badge">12</span>
+                </a>
+                <a href="#" class="sidebar__link">
+                    <span>🚚</span> Shipments
+                    <span class="sidebar__badge">3</span>
+                </a>
+            </div>
+
+            <div class="sidebar__section">
+                <div class="sidebar__label">Account</div>
+                <a href="settings.html" class="sidebar__link">
+                    <span>⚙️</span> Settings
+                </a>
+                <a href="contact.html" class="sidebar__link">
+                    <span>💬</span> Support
+                </a>
+                <a href="faq.html" class="sidebar__link">
+                    <span>❓</span> Help Center
+                </a>
+            </div>
         </nav>
 
-        <button class="sidebar__logout" id="logoutBtn">
-            <span>↪</span> Logout
-        </button>
+        <div class="sidebar__footer">
+            <div class="sidebar__user">
+                <div class="avatar avatar--sm" id="sidebarAvatar">U</div>
+                <div class="sidebar__user-info">
+                    <div class="sidebar__user-name" id="sidebarName">User</div>
+                    <div class="sidebar__user-role">Customer</div>
+                </div>
+            </div>
+            <button class="sidebar__logout" id="logoutBtn">
+                <span>↪</span> Logout
+            </button>
+        </div>
     </aside>
+
 
     <!-- ============================
          MAIN CONTENT
@@ -76,128 +105,377 @@
     <main class="dash-main">
 
         <!-- TOP BAR -->
-        <header class="dash-header">
-            <div>
-                <h1 class="dash-header__title">Welcome back, <span id="userName">User</span> 👋</h1>
-                <p class="dash-header__subtitle">Here's your tracking overview</p>
+        <header class="dash-topbar">
+            <div class="dash-topbar__search">
+                <span class="dash-topbar__search-icon">🔍</span>
+                <input type="text" placeholder="Search orders, shipments..." class="dash-topbar__search-input" />
+                <kbd class="dash-topbar__kbd">⌘K</kbd>
             </div>
 
-            <div class="dash-header__user">
-                <div class="avatar" id="userAvatar">U</div>
+            <div class="dash-topbar__actions">
+                <button class="dash-topbar__icon-btn" aria-label="Notifications">
+                    🔔
+                    <span class="dash-topbar__dot"></span>
+                </button>
+
+                <button class="dash-topbar__icon-btn" aria-label="Messages">
+                    💬
+                </button>
+
+                <div class="dash-topbar__user">
+                    <div class="avatar avatar--sm" id="userAvatar">U</div>
+                    <div class="dash-topbar__user-info">
+                        <div class="dash-topbar__user-name" id="userName">User</div>
+                        <div class="dash-topbar__user-email" id="userEmail">user@example.com</div>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <!-- SEARCH TRACKING -->
-        <section class="dash-search">
-            <form id="trackForm" class="dash-search__form">
-                <input
-                    type="text"
-                    id="trackInput"
-                    class="dash-search__input"
-                    placeholder="Enter tracking ID (e.g. NT-2024-XK9821)"
-                />
-                <button type="submit" class="btn btn--primary">
-                    Track Order
+
+        <!-- WELCOME -->
+        <section class="dash-welcome">
+            <div>
+                <h1 class="dash-welcome__title">
+                    Welcome back, <span class="text-gradient" id="welcomeName">User</span> 👋
+                </h1>
+                <p class="dash-welcome__subtitle">
+                    Here's what's happening with your orders today.
+                </p>
+            </div>
+
+            <div class="dash-welcome__actions">
+                <button class="btn btn--outline">
+                    <span>📥</span> Export
                 </button>
-            </form>
-            <p class="dash-search__hint">💡 Try: <code>NT-2024-XK9821</code></p>
-        </section>
-
-        <!-- STATS CARDS -->
-        <section class="dash-stats">
-            <div class="dash-stat">
-                <div class="dash-stat__icon">📦</div>
-                <div>
-                    <div class="dash-stat__value">12</div>
-                    <div class="dash-stat__label">Total Orders</div>
-                </div>
-            </div>
-            <div class="dash-stat">
-                <div class="dash-stat__icon">🚚</div>
-                <div>
-                    <div class="dash-stat__value">3</div>
-                    <div class="dash-stat__label">In Transit</div>
-                </div>
-            </div>
-            <div class="dash-stat">
-                <div class="dash-stat__icon">✅</div>
-                <div>
-                    <div class="dash-stat__value">8</div>
-                    <div class="dash-stat__label">Delivered</div>
-                </div>
-            </div>
-            <div class="dash-stat">
-                <div class="dash-stat__icon">⏳</div>
-                <div>
-                    <div class="dash-stat__value">1</div>
-                    <div class="dash-stat__label">Pending</div>
-                </div>
+                <button class="btn btn--primary">
+                    <span>➕</span> New Order
+                </button>
             </div>
         </section>
 
-        <!-- 3D TRACKING AREA -->
-        <section class="dash-tracker" id="tracker">
-            <div class="dash-tracker__header">
-                <h2 class="dash-tracker__title">
-                    Live Tracking — <span class="text-gradient" id="trackIdDisplay">NT-2024-XK9821</span>
-                </h2>
-                <div class="status-badge status-badge--transit">
-                    <span class="status-badge__dot"></span> In Transit
+
+        <!-- STATS GRID -->
+        <section class="stats-grid">
+
+            <div class="stat-card stat-card--purple">
+                <div class="stat-card__header">
+                    <div class="stat-card__icon">📦</div>
+                    <div class="stat-card__trend stat-card__trend--up">
+                        ↑ 12%
+                    </div>
+                </div>
+                <div class="stat-card__value">12</div>
+                <div class="stat-card__label">Total Orders</div>
+                <div class="stat-card__chart">
+                    <div class="stat-card__bar" style="height: 40%"></div>
+                    <div class="stat-card__bar" style="height: 60%"></div>
+                    <div class="stat-card__bar" style="height: 45%"></div>
+                    <div class="stat-card__bar" style="height: 75%"></div>
+                    <div class="stat-card__bar" style="height: 90%"></div>
+                    <div class="stat-card__bar" style="height: 65%"></div>
+                    <div class="stat-card__bar" style="height: 85%"></div>
                 </div>
             </div>
 
-            <!-- 3D CANVAS — Three.js will render here -->
-            <div class="dash-tracker__canvas" id="tracking-canvas"></div>
-
-            <!-- TIMELINE -->
-            <div class="timeline">
-                <div class="timeline__step timeline__step--done">
-                    <div class="timeline__dot"></div>
-                    <div class="timeline__content">
-                        <div class="timeline__title">Order Placed</div>
-                        <div class="timeline__time">Oct 1, 2024 · 10:24 AM</div>
+            <div class="stat-card stat-card--cyan">
+                <div class="stat-card__header">
+                    <div class="stat-card__icon">🚚</div>
+                    <div class="stat-card__trend stat-card__trend--up">
+                        ↑ 8%
                     </div>
                 </div>
-                <div class="timeline__step timeline__step--done">
-                    <div class="timeline__dot"></div>
-                    <div class="timeline__content">
-                        <div class="timeline__title">Picked Up</div>
-                        <div class="timeline__time">Oct 2, 2024 · 2:15 PM</div>
-                    </div>
-                </div>
-                <div class="timeline__step timeline__step--active">
-                    <div class="timeline__dot"></div>
-                    <div class="timeline__content">
-                        <div class="timeline__title">In Transit</div>
-                        <div class="timeline__time">Currently here · Est. delivery Oct 5</div>
-                    </div>
-                </div>
-                <div class="timeline__step">
-                    <div class="timeline__dot"></div>
-                    <div class="timeline__content">
-                        <div class="timeline__title">Out for Delivery</div>
-                        <div class="timeline__time">Pending</div>
-                    </div>
-                </div>
-                <div class="timeline__step">
-                    <div class="timeline__dot"></div>
-                    <div class="timeline__content">
-                        <div class="timeline__title">Delivered</div>
-                        <div class="timeline__time">Pending</div>
-                    </div>
+                <div class="stat-card__value">3</div>
+                <div class="stat-card__label">In Transit</div>
+                <div class="stat-card__chart">
+                    <div class="stat-card__bar" style="height: 30%"></div>
+                    <div class="stat-card__bar" style="height: 50%"></div>
+                    <div class="stat-card__bar" style="height: 70%"></div>
+                    <div class="stat-card__bar" style="height: 55%"></div>
+                    <div class="stat-card__bar" style="height: 80%"></div>
+                    <div class="stat-card__bar" style="height: 60%"></div>
+                    <div class="stat-card__bar" style="height: 75%"></div>
                 </div>
             </div>
+
+            <div class="stat-card stat-card--green">
+                <div class="stat-card__header">
+                    <div class="stat-card__icon">✅</div>
+                    <div class="stat-card__trend stat-card__trend--up">
+                        ↑ 24%
+                    </div>
+                </div>
+                <div class="stat-card__value">8</div>
+                <div class="stat-card__label">Delivered</div>
+                <div class="stat-card__chart">
+                    <div class="stat-card__bar" style="height: 20%"></div>
+                    <div class="stat-card__bar" style="height: 40%"></div>
+                    <div class="stat-card__bar" style="height: 35%"></div>
+                    <div class="stat-card__bar" style="height: 65%"></div>
+                    <div class="stat-card__bar" style="height: 70%"></div>
+                    <div class="stat-card__bar" style="height: 85%"></div>
+                    <div class="stat-card__bar" style="height: 100%"></div>
+                </div>
+            </div>
+
+            <div class="stat-card stat-card--orange">
+                <div class="stat-card__header">
+                    <div class="stat-card__icon">⏳</div>
+                    <div class="stat-card__trend stat-card__trend--down">
+                        ↓ 5%
+                    </div>
+                </div>
+                <div class="stat-card__value">1</div>
+                <div class="stat-card__label">Pending</div>
+                <div class="stat-card__chart">
+                    <div class="stat-card__bar" style="height: 60%"></div>
+                    <div class="stat-card__bar" style="height: 50%"></div>
+                    <div class="stat-card__bar" style="height: 70%"></div>
+                    <div class="stat-card__bar" style="height: 40%"></div>
+                    <div class="stat-card__bar" style="height: 30%"></div>
+                    <div class="stat-card__bar" style="height: 25%"></div>
+                    <div class="stat-card__bar" style="height: 20%"></div>
+                </div>
+            </div>
+
         </section>
 
-    </main>
 
-    <script type="module" src="js/dashboard.js"></script>
-    <script src="js/loading.js"></script>
+        <!-- MAIN GRID -->
+        <section class="dash-grid">
+
+            <!-- LEFT COLUMN — TRACKING -->
+            <div class="dash-col dash-col--main">
+
+                <!-- TRACKING BOX -->
+                <div class="panel">
+                    <div class="panel__header">
+                        <div>
+                            <h2 class="panel__title">
+                                Live Tracking
+                            </h2>
+                            <p class="panel__subtitle">
+                                Order <strong id="trackIdDisplay">NT-2024-XK9821</strong>
+                            </p>
+                        </div>
+                        <div class="status-badge status-badge--transit">
+                            <span class="status-badge__dot"></span> In Transit
+                        </div>
+                    </div>
+
+                    <div class="panel__body">
+                        <div class="dash-tracker__canvas" id="tracking-canvas"></div>
+
+                        <div class="tracking-stats">
+                            <div class="tracking-stat">
+                                <div class="tracking-stat__label">From</div>
+                                <div class="tracking-stat__value">Lahore Warehouse</div>
+                            </div>
+                            <div class="tracking-stat">
+                                <div class="tracking-stat__label">To</div>
+                                <div class="tracking-stat__value">Karachi, Pakistan</div>
+                            </div>
+                            <div class="tracking-stat">
+                                <div class="tracking-stat__label">Est. Delivery</div>
+                                <div class="tracking-stat__value">Oct 5, 2024</div>
+                            </div>
+                        </div>
+
+                        <!-- TIMELINE -->
+                        <div class="timeline timeline--horizontal">
+                            <div class="timeline__step timeline__step--done">
+                                <div class="timeline__dot"></div>
+                                <div class="timeline__content">
+                                    <div class="timeline__title">Order Placed</div>
+                                    <div class="timeline__time">Oct 1, 10:24 AM</div>
+                                </div>
+                            </div>
+                            <div class="timeline__step timeline__step--done">
+                                <div class="timeline__dot"></div>
+                                <div class="timeline__content">
+                                    <div class="timeline__title">Picked Up</div>
+                                    <div class="timeline__time">Oct 2, 2:15 PM</div>
+                                </div>
+                            </div>
+                            <div class="timeline__step timeline__step--active">
+                                <div class="timeline__dot"></div>
+                                <div class="timeline__content">
+                                    <div class="timeline__title">In Transit</div>
+                                    <div class="timeline__time">Now</div>
+                                </div>
+                            </div>
+                            <div class="timeline__step">
+                                <div class="timeline__dot"></div>
+                                <div class="timeline__content">
+                                    <div class="timeline__title">Out for Delivery</div>
+                                    <div class="timeline__time">Pending</div>
+                                </div>
+                            </div>
+                            <div class="timeline__step">
+                                <div class="timeline__dot"></div>
+                                <div class="timeline__content">
+                                    <div class="timeline__title">Delivered</div>
+                                    <div class="timeline__time">Pending</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RECENT ORDERS -->
+                <div class="panel">
+                    <div class="panel__header">
+                        <div>
+                            <h2 class="panel__title">Recent Orders</h2>
+                            <p class="panel__subtitle">Your latest shipments</p>
+                        </div>
+                        <button class="btn btn--ghost btn--sm">View All →</button>
+                    </div>
+
+                    <div class="orders-table">
+                        <div class="orders-table__row orders-table__row--head">
+                            <div>Order ID</div>
+                            <div>Item</div>
+                            <div>Status</div>
+                            <div>Date</div>
+                            <div></div>
+                        </div>
+
+                        <div class="orders-table__row">
+                            <div><code>NT-2024-XK9821</code></div>
+                            <div>Dell Laptop</div>
+                            <div><span class="order-status order-status--transit">In Transit</span></div>
+                            <div>Oct 5, 2024</div>
+                            <div><button class="orders-table__action">Track →</button></div>
+                        </div>
+
+                        <div class="orders-table__row">
+                            <div><code>NT-2024-AB1234</code></div>
+                            <div>iPhone 15 Pro</div>
+                            <div><span class="order-status order-status--delivered">Delivered</span></div>
+                            <div>Oct 4, 2024</div>
+                            <div><button class="orders-table__action">View →</button></div>
+                        </div>
+
+                        <div class="orders-table__row">
+                            <div><code>NT-2024-CD5678</code></div>
+                            <div>Books Bundle</div>
+                            <div><span class="order-status order-status--pending">Pending</span></div>
+                            <div>Oct 3, 2024</div>
+                            <div><button class="orders-table__action">View →</button></div>
+                        </div>
+
+                        <div class="orders-table__row">
+                            <div><code>NT-2024-EF9012</code></div>
+                            <div>Sneakers</div>
+                            <div><span class="order-status order-status--delivered">Delivered</span></div>
+                            <div>Oct 2, 2024</div>
+                            <div><button class="orders-table__action">View →</button></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN — ACTIVITY -->
+            <div class="dash-col dash-col--side">
+
+                <!-- QUICK TRACK -->
+                <div class="panel panel--accent">
+                    <h3 class="panel__title panel__title--sm">Quick Track</h3>
+                    <p class="panel__subtitle">Enter a tracking ID</p>
+
+                    <form id="trackForm" class="quick-track__form">
+                        <input
+                            type="text"
+                            id="trackInput"
+                            class="form__input"
+                            placeholder="NT-2024-XK9821"
+                        />
+                        <button type="submit" class="btn btn--primary btn--sm">
+                            Track
+                        </button>
+                    </form>
+                </div>
+
+                <!-- ACTIVITY FEED -->
+                <div class="panel">
+                    <div class="panel__header">
+                        <h3 class="panel__title panel__title--sm">Recent Activity</h3>
+                    </div>
+
+                    <div class="activity-feed">
+                        <div class="activity-item">
+                            <div class="activity-item__icon activity-item__icon--green">✅</div>
+                            <div class="activity-item__content">
+                                <div class="activity-item__text">
+                                    Order <strong>NT-2024-AB1234</strong> was delivered
+                                </div>
+                                <div class="activity-item__time">2 hours ago</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-item__icon activity-item__icon--cyan">🚚</div>
+                            <div class="activity-item__content">
+                                <div class="activity-item__text">
+                                    Order <strong>NT-2024-XK9821</strong> is in transit
+                                </div>
+                                <div class="activity-item__time">5 hours ago</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-item__icon activity-item__icon--purple">📦</div>
+                            <div class="activity-item__content">
+                                <div class="activity-item__text">
+                                    New order <strong>NT-2024-CD5678</strong> placed
+                                    </div>
+                            <div class="activity-item__time">Yesterday</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-item__icon activity-item__icon--orange">⏳</div>
+                        <div class="activity-item__content">
+                            <div class="activity-item__text">
+                                Payment confirmed for <strong>Order #9012</strong>
+                            </div>
+                            <div class="activity-item__time">2 days ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HELP CARD -->
+            <div class="panel panel--help">
+                <div class="help-card">
+                    <div class="help-card__icon">💡</div>
+                    <h4 class="help-card__title">Need help?</h4>
+                    <p class="help-card__text">
+                        Check our FAQ or contact support — we're here to help.
+                    </p>
+                    <a href="faq.html" class="btn btn--outline btn--sm">
+                        Visit Help Center
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  window.THREE = THREE;
+</script>
+<script src="js/loading.js"></script>
+<script src="js/dashboard.js"></script>
 </body>
-<!-- Page Loader -->
-<div class="page-loader">
-    <div class="page-loader__logo">NOVA<span>.</span></div>
-    <div class="page-loader__spinner"></div>
-    <div class="page-loader__text">Loading...</div>
-</div>
 </html>
