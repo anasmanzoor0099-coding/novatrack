@@ -1088,4 +1088,156 @@
     .dash-welcome__title {
         font-size: 1.2rem;
     }
+}/* ============================================
+   MOBILE OVERFLOW FIX
+   ============================================ */
+
+@media (max-width: 900px) {
+
+    /* ===== PREVENT HORIZONTAL SCROLL ===== */
+    html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100% !important;
+    }
+
+    .dash-body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100% !important;
+    }
+
+    .dash-main {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ===== BOTTOM NAV — SCROLLABLE HORIZONTAL ===== */
+    .sidebar {
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 0.4rem 0.5rem !important;
+    }
+
+    .sidebar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebar__nav {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        flex: 0 0 auto !important;
+        min-width: 100%;
+        justify-content: flex-start !important;
+        gap: 0.15rem !important;
+        scrollbar-width: none;
+    }
+
+    .sidebar__nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebar__section {
+        flex: 0 0 auto !important;
+        justify-content: flex-start !important;
+        gap: 0.15rem !important;
+    }
+
+    .sidebar__link {
+        flex: 0 0 auto !important;
+        min-width: 60px !important;
+        flex-direction: column !important;
+        gap: 0.2rem !important;
+        padding: 0.5rem 0.5rem !important;
+        font-size: 0.6rem !important;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .sidebar__link span:first-child {
+        font-size: 1.15rem !important;
+    }
+
+    /* ===== PANELS — PREVENT OVERFLOW ===== */
+    .panel,
+    .stat-card,
+    .tracking-stats,
+    .activity-feed,
+    .help-card,
+    .orders-table,
+    .orders-table__row {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+    }
+
+    /* ===== TRACKING CANVAS ===== */
+    .dash-tracker__canvas {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: hidden;
+    }
+
+    /* ===== TIMELINE HORIZONTAL SCROLL FIX ===== */
+    .timeline--horizontal {
+        overflow-x: auto !important;
+        max-width: 100% !important;
+        padding-right: 0.5rem;
+    }
+
+    /* ===== ORDERS TABLE ===== */
+    .orders-table__row {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .orders-table__row code {
+        font-size: 0.75rem !important;
+        word-break: break-all;
+    }
+
+    /* ===== FIX TEXT OVERFLOW ===== */
+    .panel__title,
+    .panel__subtitle,
+    .dash-welcome__title,
+    .stat-card__label,
+    .activity-item__text,
+    .tracking-stat__value,
+    .timeline__title {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        max-width: 100%;
+    }
+
+    /* ===== HELP CARD PADDING ===== */
+    .help-card {
+        padding: 1rem !important;
+    }
+
+    /* ===== QUICK TRACK ===== */
+    .quick-track__form .form__input,
+    .quick-track__form .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* ===== EXTRA SMALL SCREENS ===== */
+@media (max-width: 400px) {
+    .sidebar__link {
+        min-width: 54px !important;
+        font-size: 0.55rem !important;
+        padding: 0.4rem 0.35rem !important;
+    }
+
+    .sidebar__link span:first-child {
+        font-size: 1rem !important;
+    }
 }
