@@ -1357,4 +1357,329 @@
     .timeline--horizontal {
         padding: 0 0 0.5rem 0 !important;
     }
+}/* ============================================
+   MOBILE — GRID TO BLOCK FIX (STRONGEST)
+   ============================================ */
+
+@media (max-width: 900px) {
+
+    /* ===== FORCE BLOCK LAYOUT (not grid) ===== */
+    .dash-body {
+        display: block !important;
+        grid-template-columns: none !important;
+        grid-template-rows: none !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+        padding-bottom: 5rem !important;
+    }
+
+    /* ===== SIDEBAR — FIXED BOTTOM NAV ===== */
+    .sidebar {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        height: auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        padding: 0.4rem 0.25rem !important;
+        background: rgba(20, 20, 28, 0.98) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-top: 1px solid var(--color-border) !important;
+        border-right: none !important;
+        border-bottom: none !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        z-index: 999 !important;
+        box-sizing: border-box !important;
+        scrollbar-width: none !important;
+    }
+
+    .sidebar::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .sidebar__nav {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 0.25rem !important;
+        flex: 1 !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .sidebar__section {
+        display: contents !important;
+    }
+
+    .sidebar__label {
+        display: none !important;
+    }
+
+    .sidebar__logo,
+    .sidebar__user,
+    .sidebar__footer {
+        display: none !important;
+    }
+
+    .sidebar__link {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.15rem !important;
+        padding: 0.4rem 0.3rem !important;
+        font-size: 0.55rem !important;
+        min-width: 50px !important;
+        max-width: 60px !important;
+        flex: 1 !important;
+        text-align: center !important;
+        border-radius: var(--radius-md) !important;
+        border-left: none !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .sidebar__link span:first-child {
+        font-size: 1.15rem !important;
+        line-height: 1 !important;
+    }
+
+    .sidebar__link.active {
+        background: rgba(139, 92, 246, 0.2) !important;
+        color: var(--color-primary-light) !important;
+    }
+
+    .sidebar__badge {
+        display: none !important;
+    }
+
+    /* ===== MAIN CONTENT — PROPER WIDTH ===== */
+    .dash-main {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding: 0.85rem !important;
+        padding-bottom: 5.5rem !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+
+    /* ===== FORCE ALL SECTIONS TO FULL WIDTH ===== */
+    .dash-main > section,
+    .dash-main > header {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        display: block !important;
+    }
+
+    /* ===== STATS GRID ===== */
+    .stats-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.6rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ===== DASH GRID ===== */
+    .dash-grid {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .dash-col {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 0.75rem !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ===== PANELS — CRITICAL FIX ===== */
+    .panel {
+        display: block !important;
+        width: calc(100% - 0px) !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 0.75rem !important;
+        padding: 0.85rem !important;
+        overflow: hidden !important;
+    }
+
+    /* ===== ALL PANEL CHILDREN ===== */
+    .panel > * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ===== STAT CARDS ===== */
+    .stat-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0.75rem !important;
+    }
+
+    /* ===== 3D CANVAS ===== */
+    .dash-tracker__canvas {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        height: 180px !important;
+    }
+
+    /* ===== TRACKING STATS ===== */
+    .tracking-stats {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0.75rem !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ===== ORDERS TABLE ===== */
+    .orders-table {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .orders-table__row {
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+        gap: 0.4rem !important;
+        padding: 0.75rem !important;
+        background: var(--color-surface-2) !important;
+        border-radius: var(--radius-md) !important;
+        border: 1px solid var(--color-border) !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .orders-table__row--head {
+        display: none !important;
+    }
+
+    .orders-table__row code {
+        font-size: 0.75rem !important;
+        padding: 0.15rem 0.4rem !important;
+    }
+
+    /* ===== ACTIVITY FEED ===== */
+    .activity-feed {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .activity-item {
+        padding: 0.6rem !important;
+        gap: 0.6rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ===== HELP CARD ===== */
+    .help-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 1rem !important;
+    }
+
+    /* ===== TIMELINE HORIZONTAL — SCROLL INSIDE PANEL ===== */
+    .timeline--horizontal {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        box-sizing: border-box !important;
+        padding: 0 0 0.5rem 0 !important;
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    /* ===== QUICK TRACK ===== */
+    .quick-track__form {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .quick-track__form .form__input {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        background: var(--color-surface-2) !important;
+        color: var(--color-text) !important;
+        border: 1px solid var(--color-border) !important;
+    }
+
+    .quick-track__form .btn {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* ===== TOP BAR ===== */
+    .dash-topbar {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 0.4rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .dash-topbar__search {
+        flex: 1 !important;
+        min-width: 0 !important;
+        max-width: none !important;
+    }
+
+    /* ===== WELCOME ===== */
+    .dash-welcome {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .dash-welcome__actions {
+        display: flex !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+    }
+
+    .dash-welcome__actions .btn {
+        flex: 1 !important;
+        justify-content: center !important;
+    }
 }
